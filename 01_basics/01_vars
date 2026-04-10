@@ -1,0 +1,8 @@
+// const accountID; //error
+const accountID=124; 
+let accEmail="rheajose@gmail.com"; //preferred if uninit->undefined
+var accPW="Bajs21"; //this is not used because of global and functional scope issues
+accCity='MUMBAI'; //this is allowed but not preferred 
+// accountID=2; not allowed 
+console.log(accountID);
+console.table([accEmail,accPW]);
