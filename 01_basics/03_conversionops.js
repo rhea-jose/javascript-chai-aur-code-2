@@ -29,3 +29,23 @@ let num=10; // true
 console.log(Boolean(num));
 console.log(String(num));
 console.log(typeof String(num));
+
+let val=3
+let neg=-val
+console.log(2**3);
+console.log(2/3); // float not int
+// not double divide it makes a comment console.log(2//3);
+
+// concat strs by s1+s2
+
+// Below : ambiguous changes like these may happen due to ecma so refer to them if confusion occurs
+// preferred not to write such code
+console.log("1"+2);
+console.log(1+"2");
+console.log("1"+2+2);
+console.log(1+2+"2");
+
+let num1,num2,num3;
+num1=num2=num3=10
+//allowed not prefer
+
