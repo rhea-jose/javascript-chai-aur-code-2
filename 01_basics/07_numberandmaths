@@ -1,0 +1,42 @@
+// const score=40
+// console.log(score)
+
+// const newNum=new Number(402) // on console log you can see prototype with lots of methods too along with primitive value
+
+// console.log(newNum)
+// console.log(newNum.toString())
+// console.log(newNum.toString().length)
+// console.log(newNum.toFixed(3)) //precision in ecommerce etc used 
+
+// const otherNum=1213.4952
+// console.log(otherNum.toPrecision(3))
+// const other=213.4952
+// console.log(other.toPrecision(3))
+// const othe=3.4952
+// console.log(othe.toPrecision(3))
+
+// const zeroes=100000000
+// console.log(zeroes.toLocaleString()) //sets commas acc to us standards
+// console.log(zeroes.toLocaleString('en-IN')) //sets commas acc to indian standards
+
+// console.table([Number.MAX_VALUE,
+// Number.MIN_VALUE])
+
+// console.log(Math) //object with properties ->take a look at them by exceyting htis in web console
+// console.log(Math.abs(-4))
+// console.log(Math.abs(4))
+// console.log(Math.round(-4.3))
+// console.log(Math.round(4.3))
+// console.log(Math.round(-4.9))
+// console.log(Math.round(+4.9))
+// console.log(Math.ceil(-4.9))
+// console.log(Math.floor(-4.9))
+// console.log(Math.min(-4.9,1,43))
+// console.log(Math.max(-4.9,12,1))
+
+// console.log(Math.random()) //ALWAYS [0,1) !!!
+
+const min=10
+const max =20
+
+console.log(Math.floor(Math.random()*(max-min+1))+min) //+1 is ensuring that 10 not included ig?
