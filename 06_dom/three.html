@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node list Creation</title>
+</head>
+<body style="background-color: #212121;
+        color: white;
+        
+    ">
+    
+</body>
+<script>
+    // creating elements
+    const div = document.createElement('div')
+    div.className='main'
+    div.id=Math.floor(Math.random()*10+1)
+    console.log(div)
+    // setting custom attributes
+
+    div.setAttribute('title','myTitle')
+    div.style.backgroundColor='green'
+    // this div isnt visible on page yet, because you have created it in memory but not attached it to document
+    div.innerText='Rhea loves dieting'
+
+    // setAttribute is more preferred, because using .
+    // first gets values from memory then overwrites 
+    // set wala values ko leke nahi aata , directly memory me set karta hai jisse ek round trip bachta hai
+
+    const text=document.createTextNode('Hi there ') //jaise node list me dikhte the text nodes
+    div.appendChild(text) //Both ways to add inner text
+
+    document.body.appendChild(div)
+</script>
+</html>
