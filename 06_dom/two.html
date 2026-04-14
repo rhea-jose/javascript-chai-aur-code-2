@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM | Chai Aur Code </title>
+</head>
+<body style="background-color: #212121;
+        color: white;
+        
+    ">
+    <div class="parent" >
+        <!-- Comment -->
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
+    </div>
+</body>
+<script>
+    const par=document.querySelector(".parent");
+    // console.log(par)
+    // console.log(par.children) //html collection
+    // console.log(par.children[0]) 
+    // for (let i = 0; i < par.children.length; i++) {
+    //     console.log(par.children[i].innerHTML)
+        
+    // }
+    // par.children[1].style.backgroundColor='green'
+    // allowing easy movement from parent to child
+    // console.log(par.firstElementChild)
+    // console.log(par.lastElementChild) 
+
+    // to directly choose child mention its class
+    const dayOne=document.querySelector('.day')
+    console.log(dayOne)
+
+    // using querySelector each time isnt advisable because 
+    // it is expensive to traverse the tree each time
+
+    // to get parent from child
+    console.log(dayOne.parentElement)
+    console.log(dayOne.nextElementSibling)
+
+
+    // DOM is a tree structure and evrything has its importance
+    // Node list wont just simply be collection of elements, it has text elements too , for eg when you use newline or enter in js file
+
+    console.log(par.childNodes)
+</script>
+</html>
