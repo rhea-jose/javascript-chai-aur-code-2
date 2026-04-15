@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+</head>
+<body>
+    <div class="box">
+        click me
+    </div>
+        <div style="height:50px"></div>
+
+    <button class="button mouse">
+        Mouse events
+    </button>
+        <div style="height:50px"></div>
+
+    <button class="button keyboard" > 
+        Keyboard events
+    </button>
+        <div style="height:50px"></div>
+
+    <div class="window">
+        Window/document events
+    </div>
+
+    <div style="height:50px"></div>
+    <!-- <div style="height: 1000px;"></div>  -->
+    <!-- blank page for scrolling -->
+    <!-- <form class="juiceForm">
+        <fieldset>
+            <legend>Juice Sizes</legend>
+            <input type ="radio" name="size" value="small" id="size_1"> 
+            // value will be sent when this is clicked, name will allow only one of all of same name to be chosen
+            <label for="size_1">Small</label>
+
+            <input name="size" value="medium" id="size_2" type="radio">
+            <label for="size_2">Medium</label>
+
+            <input name="size" type="radio" value="large" id="size_3">
+            <label for="size_3">Large</label>
+        </fieldset>
+    </form> -->
+    <form id="myForm">
+    
+    <!-- Text Input -->
+    <label>Name:</label>
+    <input type="text" id="name" placeholder="Type your name">
+
+    <!-- Email Input -->
+    <label>Email:</label>
+    <input type="email" id="email" placeholder="Type your email">
+
+    <!-- Select -->
+    <label>Choose Size:</label>
+    <select id="size">
+        <option value="">Select</option>
+        <option value="small">Small</option>
+        <option value="medium">Medium</option>
+        <option value="large">Large</option>
+    </select>
+    <!-- Radio -->
+    <label>
+        <input type="radio" name="gender" value="male"> Male
+    </label>
+    <label>
+        <input type="radio" name="gender" value="female"> Female
+    </label>
+
+    <button type="submit">Submit</button>
+</form>
+
+<hr>
+</body>
+<link rel="stylesheet" href="style1.css">
+<script src="example.js"></script>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>htnml Events </title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <!-- This method of writing event responses within html is not preferred as it becomes confusing when projects scale below: -->
+            <!-- <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" onclick="alert('owl')"  ></li> -->
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""  ></li>
+            
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;"href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+<script>
+    // javascript usually run sequentially _
+    // browser ke events activities se invoke hote hai jinke baare me hum dekhenge
+    // these events my cause program to deviate and work asynchronously
+    // document.getElementById('owl').onclick=function (){
+    //     alert('Owl clicked')
+    // }
+    // this is again not preferred because onclick on its own doesnt really provide much info,
+    // we must use eventListeners because they ensure propagation
+
+    // document.getElementById('owl').addEventListener('click',function(e){
+    //     console.log(e)
+    // },false); //3rd parameter is false default so you can skip writing if false
+    // event -> pointerEvent object returned -> Browser events and environment events(posn of mouse when click performed)
+
+
+    // event propagation : (false)event bubbling, (true)event capturing
+    // document.getElementById('images').addEventListener('click',(e)=>{
+    //     console.log('clicked inside the ul')
+    // },false)
+    // document.getElementById('owl').addEventListener('click',(e)=>{
+    //     console.log('owl clicked')
+    // },false) //event bubbles up from owl li to outer ul
+    // document.getElementById('images').addEventListener('click',(e)=>{
+    //     console.log('clicked inside the ul')
+    // },false) 
+    // document.getElementById('owl').addEventListener('click',(e)=>{
+    //     console.log('owl clicked')
+        // e.stopPropagation(); //?? dekh lena 
+    // },false) //event bubbles down par->children
+    // document.getElementById('google').addEventListener('click',(e)=>{
+    //     console.log('google clicked')
+    //     e.preventDefault();  
+    //     e.stopPropagation();
+            
+    // })
+    // 🔥 Key Insight
+    // stopPropagation() only stops future propagation, not what already happened.
+    // In bubbling (false set in parent) → parent runs after child → can be stopped ✅
+    // In capturing (true set in parent) → parent runs before child → cannot be stopped ❌
+    // false me only false ones from bottom to top execute
+    // true me only true ones from top to bottom execute
+    // const liItems =document.querySelectorAll('li');
+    // liItems.forEach((li)=>{
+    //     li.addEventListener('click',(e)=>{
+    //     e.target.setAttribute('src',"")
+    // })
+    // })
+    // document.querySelector('li').addEventListener('click',(e)=>{
+    //     e.target.setAttribute('src',"")
+    // })
+    // Soltuion for what i tried above:
+    // to remove images as i click on them
+
+    // document.querySelector('#images').addEventListener('click',(e)=>{
+    //     console.log(e.target) //img
+    //     console.log(e.target.parentNode)
+    //     const removeIt=e.target.parentNode //li
+    //     // removeIt.remove() newer , easier 
+    //     removeIt.parentNode.removeChild(removeIt) //ul->li
+    // },false) //here google link wala last dikkat karta hai ->li ka parent_>ul removed
+    document.querySelector('#images').addEventListener('click',(e)=>{
+        console.log(e.target) //img
+        console.log(e.target.parentNode)
+        console.log(e.target.tagName)
+        if(e.target.tagName==='IMG'){
+            e.target.parentNode.remove();
+        }
+    },false)
+
+</script>
+</html>
