@@ -315,4 +315,27 @@ document.addEventListener('keydown', (e) => {
 KeyA
 Enter
 ShiftLeft
+
+WHY WINDOW AND DOCUMENT APPEAR TO WORK THE SAME?
+document.addEventListener('keydown', (e) => {
+  document.querySelector('.key').textContent = e.key;
+}); 
+window.addEventListener('keydown', (e) => {
+  document.querySelector('.key').textContent = e.key;
+}); 
+Both give the same result why?
+When a key is pressed:
+Event starts at the focused element (like an input or body)
+Then it bubbles upward:
+element → body → document → window
+
+They differ if:
+1. You stop propagation
+document.addEventListener('keydown', (e) => {
+  e.stopPropagation();
+});
+Now window won’t receive it.
+2. You use capture phase
+window.addEventListener('keydown', handler, true);
+Now window gets the event before it reaches document
 */
