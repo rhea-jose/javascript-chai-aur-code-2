@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Welcome to Chai and Biscuit</h1>
+    <button id="stop" style="font-size:2rem" >Stop</button>
+</body>
+<script>
+    // setTimeout(()=>{
+    //     console.log("rhea")
+    // },2000); //only executes once
+    // method that calls an api , not avbl in js engine but using browser or other api's/runtime environment
+    // handler : anonymous function or function reference both work
+    // setInterval(()=>{
+    //     console.log("rhea")
+    // },2000);
+    // setTimeout(function(){
+    //     console.log("rhea")
+    // },2000);
+    // function sayMyName(){
+    //     console.log("rhea")
+    // }
+    // setTimeout(sayMyName,2000);
+
+    const secondView =()=>document.querySelector('h1').textContent="By Rhea " 
+    // setTimeout(secondView,1000) //timeouts are used for pop ups and stuff on websites
+    const change =setTimeout(secondView,4000)
+    // clearTimeout(change) //removes callback from queue so setTimeout doesnt function now, but iska toh koi sense i nahi bana ki bas set karke clear kiya
+    // clear kisi condition ke basis pe karo
+    document.querySelector('#stop').addEventListener('click',()=>{
+        clearTimeout(change)
+        console.log('STOPPED')
+    })
+</script>
+</html>
