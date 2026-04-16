@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121;">
+    <!-- 0	UNSENT	Client has been created. open() not called yet.
+1	OPENED	open() has been called.
+2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
+3	LOADING	Downloading; responseText holds partial data.
+4	DONE	The operation is complete. -->
+</body>
+<script>
+    // We make an object of XMLHttpRequest -> apne aap me ek method hai? jisme ready states wagera hote hai, inke through hum data send aur receive kar sakte hai (Built in javascript object)
+    // XMLHttpRequest (XHR) is a built-in JavaScript object used to send HTTP requests from the browser to a server and receive data without reloading the page.
+    //     🧠 Why it exists
+    // Before XHR, every time you wanted data from a server, the whole page had to reload.
+    // XHR enabled what we now call AJAX (Asynchronous JavaScript and XML) — meaning:
+    // Send request ✔
+    // Get response ✔
+    // Update part of page ✔
+    // No full reload ❌
+
+    // open() prepares the request before sending it -> it will be available jab hum xml http request type bana lenge
+    const xhr= new XMLHttpRequest()
+    // 👉 The HTTP method you want to use
+    // Common values:
+    // "GET" → get data
+    // "POST" → send data
+    // "PUT" → update
+    // "DELETE" → delete
+
+    //     url: string | URL
+    // 👉 Where you’re sending the request
+    // Can be a string
+    // Or a URL object
+    // xhr.open("GET", "https://api.example.com")
+
+    // // OR
+    // xhr.open("GET", new URL("https://api.example.com"))
+    // 👉 string | URL means either type is allowed
+    // 3. async: boolean
+    // 👉 Should the request be asynchronous or synchronous
+    // true → async (✅ normal, recommended)
+    // false → sync (❌ blocks browser, rarely used)
+    // xhr.open("GET", "url", true); // async
+    // 💡 Almost always use true
+    // 4. username?: string | null
+    // 👉 Optional login username (for authentication)
+    // ? means optional parameter
+    // You usually don’t use this
+    // xhr.open("GET", "url", true, "user")
+    // 5. password?: string | null
+    // 👉 Optional password (also for authentication)
+    // 6. : void
+    // 👉 The function does not return anything
+    // So:
+    // let result = xhr.open(...); // result will be undefined
+    // 🧠 Simple mental translation
+    // 👉 This whole line means:
+    // “open() takes method, URL, async flag, and optionally username/password, and returns nothing.”
+    // Key takeaway
+    // open() does NOT send the request
+    // It only configures it
+    // You must call:
+    const requestUrl='https://api.github.com/users/rhea-jose'
+    xhr.open('GET',requestUrl)
+    // console.log('we got till here')
+    xhr.onreadystatechange=function (){ // when ready state changes, this function will be exceuted
+        console.log(xhr.readyState)
+        // if(xhr.readyState===4){
+        //     const data=this.responseText
+        //     console.log(data) //this denotes that i want response text of current context
+        //     console.log(typeof data) //most of the times response string hi aata hai
+        // }
+        // if(xhr.readyState===4){
+        //     const data=JSON.parse(this.responseText) //converts string to json object
+        //     console.log(data) //this denotes that i want response text of current context
+        //     console.log(typeof data) //most of the times response string hi aata hai
+        //     console.log(data.followers)
+        // }
+
+        if(xhr.readyState===4){
+            const data=this.responseText
+            const followers=data.followers
+            const avatar=data.avatar_url
+        }
+    }
+    xhr.send() // ab actually open call hoga
+</script>
+</html>
